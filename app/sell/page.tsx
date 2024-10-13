@@ -1,10 +1,12 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import React from 'react'
 import SelectCategory from '../components/SelectCategory'
 import { Textarea } from '@/components/ui/textarea'
 import { TipTapEditor } from '../components/Editor'
+import { UploadDropzone } from '../lib/uploadthing'
+import { Button } from '@/components/ui/button'
 
 const SellRoute = () => {
     return (
@@ -39,7 +41,22 @@ const SellRoute = () => {
                             <Label>Description</Label>
                             <TipTapEditor/>
                         </div>
+
+                        <div className='flex flex-col gap-y-2'>
+                            <Label>Product Images</Label>
+                            <UploadDropzone endpoint="imageUploader"/>
+                        </div>
+
+                        <div className='flex flex-col gap-y-2'>
+                            <Label>Product File</Label>
+                            <UploadDropzone endpoint="productFileUploader"/>
+                        </div>
                     </CardContent>
+                    <CardFooter className='mt-5'>
+                        <Button>
+                            Submit
+                        </Button>
+                    </CardFooter>
                 </form>
             </Card>
         </section>
