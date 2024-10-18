@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
 import { withUt } from "uploadthing/tw";
+import aspectRatio from "@tailwindcss/aspect-ratio";
 
 const config: Config = {
 	darkMode: ["class"],
@@ -61,6 +62,6 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [tailwindcssAnimate, typography],
+	plugins: [tailwindcssAnimate, typography, aspectRatio],
 };
 export default withUt(config);
