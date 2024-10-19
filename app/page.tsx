@@ -1,4 +1,4 @@
-import NewestProducts from "./components/NewestProducts";
+import ProductRow from "./components/ProductRow";
 
 export default function Home() {
   return (
@@ -10,7 +10,10 @@ export default function Home() {
           Elevate your digital products with our UI template and icon store. Discover a range of premium templates and customizable icons to create stunning visuals and seamless user experiences. 
         </p>
       </div>
-      <NewestProducts/>
+      <ProductRow category="newest"/>
+      <ProductRow category="templates"/>
+      <ProductRow category="icons"/>
+      <ProductRow category="uikits"/>
     </section>
   );
 }

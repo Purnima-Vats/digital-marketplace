@@ -2,7 +2,7 @@ import { Card } from '@/components/ui/card'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import React from 'react'
 import prisma from '../lib/db'
-import SettingsForm from '../components/SettingsForm'
+import SettingsForm from '../components/forms/SettingsForm'
 
 const getData = async (userId: string) => {
     const data = await prisma.user.findUnique({
