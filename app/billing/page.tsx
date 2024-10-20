@@ -5,7 +5,7 @@ import SubmitButton from '../components/SubmitButton'
 import prisma from '../lib/db'
 import { unstable_noStore as noStore } from 'next/cache'
 
-export const getData = async (userId: string) => {
+const getData = async (userId: string) => {
     const data = await prisma.user.findUnique({
         where: {
             id: userId,
