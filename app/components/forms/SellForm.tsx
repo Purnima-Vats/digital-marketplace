@@ -1,18 +1,17 @@
 "use client"
 
 import { SellProduct, State } from "@/app/actions"
+import { UploadDropzone } from "@/app/lib/uploadthing"
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { type JSONContent } from "@tiptap/react"
 import { useEffect, useState } from "react"
 import { useFormState } from "react-dom"
-import { type JSONContent } from "@tiptap/react"
 import { toast } from "sonner"
-import { redirect } from "next/navigation"
-import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import SelectCategory from "../SelectCategory"
-import { Textarea } from "@/components/ui/textarea"
 import { TipTapEditor } from "../Editor"
-import { UploadDropzone } from "@/app/lib/uploadthing"
+import SelectCategory from "../SelectCategory"
 import SubmitButton from "../SubmitButton"
 
 const SellForm = () => {
@@ -25,7 +24,6 @@ const SellForm = () => {
     useEffect(() => {
         if(state.status === "success"){
             toast.success(state.message)
-            redirect("/")
         } else if(state.status === "error"){
             toast.error(state.message)
         }
