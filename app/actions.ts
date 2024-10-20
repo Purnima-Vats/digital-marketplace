@@ -163,9 +163,9 @@ export async function BuyProduct (formData: FormData) {
             transfer_data: {
                 destination: data?.User?.connectedAccountId as string
             }
-        },
-        success_url: "http://localhost:3000/payment/success", 
-        cancel_url: "http://localhost:3000/payment/cancel",
+        }, 
+        success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/success`,
+        cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/cancel`,
     });
 
     return redirect(session.url as string)
@@ -191,8 +191,8 @@ export const CreateStripeAccountLink = async () => {
 
     const accountLink = await stripe.accountLinks.create({
         account: data?.connectedAccountId as string,
-        refresh_url: "http://localhost:3000/billing",
-        return_url: `http://localhost:3000/return/${data?.connectedAccountId}`,
+        refresh_url: `${process.env.NEXT_PUBLIC_SITE_URL}/billing`,
+        return_url: `${process.env.NEXT_PUBLIC_SITE_URL}/return/${data?.connectedAccountId}`,
         type: "account_onboarding"
     });
 

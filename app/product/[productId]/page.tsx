@@ -1,11 +1,11 @@
-import ProductDescription from '@/app/components/ProductDescription';
-import prisma from '@/app/lib/db'
-import { Button } from '@/components/ui/button';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import Image from 'next/image';
-import { type JSONContent } from '@tiptap/react';
 import { BuyProduct } from '@/app/actions';
+import ProductDescription from '@/app/components/ProductDescription';
 import { BuyButton } from '@/app/components/SubmitButton';
+import prisma from '@/app/lib/db';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { type JSONContent } from '@tiptap/react';
+import { unstable_noStore as noStore } from 'next/cache';
+import Image from 'next/image';
 
 async function getData(id: string) {
     const data = await prisma.product.findUnique({
@@ -40,6 +40,7 @@ const ProductPage = async ({
         productId: string
     }
 }) => {
+    noStore();
     const data = await getData(params.productId)
     return (
         <section className="max-w-7xl mx-auto px-4 lg:px-8 lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16 mb-24">
