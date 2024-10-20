@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         case "account.updated": {
             const account = event.data.object;
 
-            const data = await prisma.user.update({
+            await prisma.user.update({
                 where: {
                     connectedAccountId: account.id,
                 },
