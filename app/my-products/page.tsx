@@ -36,7 +36,7 @@ const MyProducts = async () => {
     const data = getData(user.id)
 
     return (
-        <section className="max-w-7xl mx-auto px-4 md:px-8">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 mb-10">
             <h1 className="text-2xl font-bold">My Products</h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 sm:grid-cols-2 mt-4">
                 {(await data).map((item) => (
